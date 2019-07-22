@@ -1,10 +1,10 @@
 ## Poker Hand History   
 
-Save detailed hand histories while live poker.
+Save detailed hand histories while playing live poker.
 
 ## Tech  
 
-React
+React  
 Bootstrap
 
 ## Using the App
