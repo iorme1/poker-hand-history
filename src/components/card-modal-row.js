@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Card } from '../mapping';
 
 class CardModalRow extends Component {
@@ -9,7 +8,7 @@ class CardModalRow extends Component {
         <img
           className="my-modal-card"
           src={`../img/${this.props.src}`}
-          onClick={this.props.setBoard}
+          onClick={this.props.setCard}
         />
       </div>
     )

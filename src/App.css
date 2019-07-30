@@ -1,5 +1,12 @@
-.red {
-  color: red;
+body {
+  background:
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
+  overflow-x: hidden;
 }
 
 .black {
@@ -15,12 +22,6 @@
 .suit:hover {
   background-color: lightblue;
   cursor: pointer;
-}
-
-
-.hero-hand {
-  height: 120px;
-  width: auto;
 }
 
 .board-card {
@@ -43,4 +44,59 @@
 .my-modal-card:hover {
   transform: scale(1.2);
   cursor: pointer;
+}
+
+.hand-label-input {
+  width: 35%;
+  margin: 0 auto;
+}
+
+.player-count-input {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.player-title {
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 2px 2px 3px black;
+}
+
+.player-pos {
+  color: white;
+  font-family: cursive;
+}
+
+.board-title {
+  color: white;
+  font-weight: bold;
+  font-family: cursive;
+  text-shadow: 1px 2px 2px 3px black;
+}
+
+.hand-title {
+  color: lime;
+  text-shadow: 1px 2px 2px 3px black;
+}
+
+.street-notes {
+  color: lime;
+}
+
+.street-notes-label {
+  color: white;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+  .board-card {
+    height: 75px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .board-card {
+    height: 45px;
+  }
 }

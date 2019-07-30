@@ -5,13 +5,16 @@ import {
   FormGroup,
   Input,
   Label,
-  Button
+  Button,
+  Modal,
+  ModalBody
  } from 'reactstrap';
 
 class HandHistory extends Component {
   state = {
     label: "",
-    players: null
+    players: null,
+    modal: false
   }
 
   handleChangeLabel(event) {
@@ -22,33 +25,40 @@ class HandHistory extends Component {
     this.setState({ players: event.target.value })
   }
 
+  toggle() {
+    this.setState({ modal: !this.state.modal })
+  }
+
   render() {
     return (
       <Container>
-        <Form>
+      <Modal isOpen={this.state.modal} toggle={this.toggle}>
+        <ModalBody>
           <FormGroup>
-            <Label for="hand-label"/>
             <Input
-              type="text"
-              name="hand-label"
-              onChange={this.handleChangeLabel.bind(this)}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="player-count"/>
-            <Input
+              className="player-count-input"
+              placeholder="# of players..."
               type="number"
               name="player-count"
               onChange={this.handleChangePlayers.bind(this)}
             />
           </FormGroup>
-          <Button type="submit">Save</Button>
+        </ModalBody>
+      </Modal>
+        <Form className="mt-3">
+          <FormGroup>
+            <Input
+              className="hand-label-input"
+              placeholder="Hand label..."
+              type="text"
+              name="hand-label"
+              onChange={this.handleChangeLabel.bind(this)}
+            />
+          </FormGroup>
         </Form>
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h3>{this.state.label}</h3>
-            </div>
+        <div className="row">
+          <div className="col-12 text-center">
+            <h5 className="hand-title">"{this.state.label}"</h5>
           </div>
         </div>
       </Container>

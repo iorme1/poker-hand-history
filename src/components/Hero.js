@@ -10,83 +10,45 @@ import {
   ModalBody,
   ModalFooter
  } from 'reactstrap';
-import { Card } from '../mapping';
-import CardModalRow from './card-modal-row';
+ import { Card } from '../mapping';
+ import CardModalRow from './card-modal-row';
 
-class Board extends Component {
+class Hero extends Component {
   state = {
-    board: Array(5).fill("back1.png"),
-    modal: false,
-    boardIdx: 0
+    holdings: ["back1.png", "back1.png"],
+    position: "unknown position",
+    stack_size: null,
+    holdingsIdx: 0,
+    modal: false
   }
 
   toggle(event) {
-    let boardIdx = event.target.getAttribute('data-card');
+    let holdingsIdx = event.target.getAttribute('data-card');
 
     try {
       this.setState({
         modal: !this.state.modal,
-        boardIdx
+        holdingsIdx
       });
-    } catch {
-      alert("You must pick a card");
     }
-
+    catch(e) {
+      alert("You must pick a card")
+    }
   }
 
   setCard(card) {
-    let nextBoard = [...this.state.board];
-    nextBoard[this.state.boardIdx] = card
+    let nextHoldings = [...this.state.holdings];
+    nextHoldings[this.state.holdingsIdx] = card
 
     this.setState({
-      board: nextBoard,
+      holdings: nextHoldings,
       modal: !this.state.modal
     });
   }
 
   render() {
     return (
-      <Container className="mt-3">
-        <div className="row">
-          <div className="col-12 text-center">
-            <h3 className="board-title">Board</h3>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12 text-center">
-            <img
-              data-card="0"
-              className="flop1 board-card"
-              src={`../img/${this.state.board[0]}`}
-              onClick={this.toggle.bind(this)}
-            />
-            <img
-              data-card="1"
-              className="flop2 board-card"
-              src={`../img/${this.state.board[1]}`}
-              onClick={this.toggle.bind(this)}
-            />
-            <img
-              data-card="2"
-              className="flop3 board-card"
-              src={`../img/${this.state.board[2]}`}
-              onClick={this.toggle.bind(this)}
-            />
-            <img
-              data-card="3"
-              className="turn board-card"
-              src={`../img/${this.state.board[3]}`}
-              onClick={this.toggle.bind(this)}
-            />
-            <img
-              data-card="4"
-              className="river board-card"
-              src={`../img/${this.state.board[4]}`}
-              onClick={this.toggle.bind(this)}
-            />
-          </div>
-        </div>
-
+      <div>
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
@@ -197,10 +159,23 @@ class Board extends Component {
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-
-     </Container>
+        <h4 className="player-title"> Hero </h4>
+        <p className="player-pos"> {this.state.position} </p>
+        <img
+          data-card="0"
+          className="board-card"
+          src={`../img/${this.state.holdings[0]}`}
+          onClick={this.toggle.bind(this)}
+        />
+        <img
+          data-card="1"
+          className="board-card"
+          src={`../img/${this.state.holdings[1]}`}
+          onClick={this.toggle.bind(this)}
+        />
+      </div>
     )
   }
 }
 
-export default Board;
+export default Hero;
