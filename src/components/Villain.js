@@ -25,15 +25,10 @@ class Villain extends Component {
   toggle(event) {
     let holdingsIdx = event.target.getAttribute('data-card');
 
-    try {
-      this.setState({
-        modal: !this.state.modal,
-        holdingsIdx
-      });
-    } catch(e) {
-      alert("You must pick a card")
-    }
-
+    this.setState({
+      modal: !this.state.modal,
+      holdingsIdx
+    });
   }
 
   setCard(card) {
@@ -51,7 +46,7 @@ class Villain extends Component {
       <div>
         <Modal
           isOpen={this.state.modal}
-          toggle={this.toggle}
+          toggle={this.toggle.bind(this)}
           className={this.props.className}
         >
           <ModalBody>
@@ -156,7 +151,7 @@ class Villain extends Component {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle.bind(this)}>Cancel</Button>
           </ModalFooter>
         </Modal>
         <h4 className="player-title"> Villains </h4>

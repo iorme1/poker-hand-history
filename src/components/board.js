@@ -23,15 +23,10 @@ class Board extends Component {
   toggle(event) {
     let boardIdx = event.target.getAttribute('data-card');
 
-    try {
-      this.setState({
-        modal: !this.state.modal,
-        boardIdx
-      });
-    } catch {
-      alert("You must pick a card");
-    }
-
+    this.setState({
+      modal: !this.state.modal,
+      boardIdx
+    });
   }
 
   setCard(card) {
@@ -89,7 +84,7 @@ class Board extends Component {
 
         <Modal
           isOpen={this.state.modal}
-          toggle={this.toggle}
+          toggle={this.toggle.bind(this)}
           className={this.props.className}
         >
           <ModalBody>
@@ -194,7 +189,7 @@ class Board extends Component {
             </div>
           </ModalBody>
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="secondary" onClick={this.toggle.bind(this)}>Cancel</Button>
           </ModalFooter>
         </Modal>
 

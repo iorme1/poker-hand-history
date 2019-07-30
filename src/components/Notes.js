@@ -45,10 +45,10 @@ class Notes extends Component {
     return (
       <Container>
         <div className="row mt-2">
-          <div class="col-12 text-center">
+          <div className="col-12 text-center">
             <Button
               className="btn btn-success"
-              onClick={this.toggle.bind(this)}>Edit Quick Notes
+              onClick={this.toggle.bind(this)}>Add Quick Notes
             </Button>
           </div>
         </div>

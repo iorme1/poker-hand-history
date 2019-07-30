@@ -45,17 +45,18 @@ body {
   transform: scale(1.2);
   cursor: pointer;
 }
-
+/*
 .hand-label-input {
   width: 35%;
   margin: 0 auto;
 }
 
-.player-count-input {
+.villain-count-input {
   width: 25%;
   margin: 0 auto;
 }
 
+*/
 .player-title {
   color: white;
   font-weight: bold;
