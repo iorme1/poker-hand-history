@@ -41,7 +41,7 @@ class Board extends Component {
 
   render() {
     return (
-      <Container className="mt-3">
+      <div className="container-fluid mt-3">
         <div className="row">
           <div className="col-12 text-center">
             <h3 className="board-title">Board</h3>
@@ -192,9 +192,8 @@ class Board extends Component {
             <Button color="secondary" onClick={this.toggle.bind(this)}>Cancel</Button>
           </ModalFooter>
         </Modal>
-
-     </Container>
-    )
+     </div>
+   );
   }
 }
 

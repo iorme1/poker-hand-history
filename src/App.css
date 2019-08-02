@@ -45,18 +45,7 @@ body {
   transform: scale(1.2);
   cursor: pointer;
 }
-/*
-.hand-label-input {
-  width: 35%;
-  margin: 0 auto;
-}
 
-.villain-count-input {
-  width: 25%;
-  margin: 0 auto;
-}
-
-*/
 .player-title {
   color: white;
   font-weight: bold;
@@ -64,9 +53,10 @@ body {
   text-shadow: 1px 2px 2px 3px black;
 }
 
-.player-pos {
-  color: white;
-  font-family: cursive;
+.player-pos-stack {
+  color: lime;
+  font-family: Impact;
+  margin-bottom: 1px;
 }
 
 .board-title {
@@ -77,27 +67,79 @@ body {
 }
 
 .hand-title {
-  color: lime;
+  color: #FF851B;
   text-shadow: 1px 2px 2px 3px black;
 }
 
-.street-notes {
-  color: lime;
+.notes {
+  color: #FF851B;
+  margin-top: 2px;
+  margin-right: 10px;
 }
 
-.street-notes-label {
-  color: white;
+.form-label {
+  font-family: cursive;
+}
+
+.notes-label {
+  color: #FFDC00;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.edit-link {
+  display: inline-block;
   text-decoration: underline;
+  font-family: Impact;
+  color: #0074D9;
+  letter-spacing: 1px;
+}
+
+.edit-link:hover {
+  cursor:pointer;
+}
+
+.position-stack-edit:hover {
+  cursor: pointer;
+}
+
+.position-stack-edit {
+  text-decoration: underline;
+  font-family: Impact;
+  color: #0074D9;
+  letter-spacing: 1px;
+}
+
+.hide {
+  display: none;
+}
+
+.select-notes-input {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.villain-count {
+  color: red;
+  font-family: Impact;
 }
 
 @media only screen and (max-width: 1024px) {
   .board-card {
     height: 75px;
   }
+
+  .select-notes-input {
+    width: 75%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .board-card {
-    height: 45px;
+    height: 60px;
+  }
+
+  .select-notes-input {
+    width: 75%;
   }
 }

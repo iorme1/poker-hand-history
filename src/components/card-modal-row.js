@@ -11,7 +11,7 @@ class CardModalRow extends Component {
           onClick={this.props.setCard}
         />
       </div>
-    )
+    );
   }
 }
 
