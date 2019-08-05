@@ -10,6 +10,7 @@ import {
   Container,
 } from 'reactstrap';
 import './CommentNotes.scss';
+import PropTypes from 'prop-types';
 
 class CommentNotes extends Component {
   state = {
@@ -66,6 +67,10 @@ class CommentNotes extends Component {
     }
     return null;
   }
+}
+
+CommentNotes.propTypes = {
+  active: PropTypes.bool
 }
 
 export default CommentNotes;

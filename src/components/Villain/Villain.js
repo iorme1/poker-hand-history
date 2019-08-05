@@ -10,6 +10,7 @@ import {
 import { Card } from '../../mapping';
 import CardModalRow from '../CardModalRow/CardModalRow';
 import './Villain.scss';
+import PropTypes from 'prop-types';
 
 class Villain extends Component {
   state = {
@@ -239,6 +240,10 @@ class Villain extends Component {
       </div>
     );
   }
+}
+
+Villain.propTypes = {
+  handLabel: PropTypes.string
 }
 
 export default Villain;

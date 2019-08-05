@@ -9,6 +9,7 @@ import {
   ModalFooter,
 } from 'reactstrap';
 import './StreetNotes.scss';
+import PropTypes from 'prop-types';
 
 class StreetNotes extends Component {
   state = {
@@ -119,6 +120,10 @@ class StreetNotes extends Component {
     }
     return null;
   }
+}
+
+StreetNotes.propTypes = {
+  active: PropTypes.bool
 }
 
 export default StreetNotes;

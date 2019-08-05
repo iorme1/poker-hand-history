@@ -1,5 +1,6 @@
 import React  from 'react';
 import './CardModalRow.scss';
+import PropTypes from 'prop-types';
 
 const CardModalRow = (props) => {
   return (
@@ -13,6 +14,11 @@ const CardModalRow = (props) => {
       />
     </div>
   );
+}
+
+CardModalRow.propTypes = {
+  setCard: PropTypes.func,
+  src: PropTypes.string
 }
 
 export default CardModalRow;

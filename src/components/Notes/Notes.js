@@ -4,6 +4,7 @@ import { Input } from 'reactstrap';
 import StreetNotes from '../StreetNotes/StreetNotes';
 import CommentNotes from  '../CommentNotes/CommentNotes';
 import './Notes.scss';
+import PropTypes from 'prop-types';
 
 class Notes extends Component {
   state = {
@@ -64,6 +65,10 @@ class Notes extends Component {
       </div>
     );
   }
+}
+
+Notes.propTypes = {
+  handLabel: PropTypes.string
 }
 
 export default Notes;
