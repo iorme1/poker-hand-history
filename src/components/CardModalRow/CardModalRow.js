@@ -7,6 +7,7 @@ const CardModalRow = (props) => {
     <div className="col-2">
       <img
         className="my-modal-card"
+        data-test="modal-card-image"
         src={`../img/${props.src}`}
         onClick={props.setCard}
       />
