@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input } from 'reactstrap';
 //import Action from '../Action/Action';
 import StreetNotes from '../StreetNotes/StreetNotes';
-import CommentNotes from  '../CommentNotes/CommentNotes';
+import CommentNotes from '../CommentNotes/CommentNotes';
 import './Notes.scss';
 import PropTypes from 'prop-types';
 
