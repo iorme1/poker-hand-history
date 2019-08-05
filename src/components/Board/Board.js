@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './Board.scss';
 import {
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Label,
   Button,
   Modal,
   ModalBody,
@@ -55,30 +50,35 @@ class Board extends Component {
               className="flop1 board-card"
               src={`../img/${this.state.board[0]}`}
               onClick={this.toggle.bind(this)}
+              alt="flop-card1"
             />
             <img
               data-card="1"
               className="flop2 board-card"
               src={`../img/${this.state.board[1]}`}
               onClick={this.toggle.bind(this)}
+              alt="flop-card2"
             />
             <img
               data-card="2"
               className="flop3 board-card"
               src={`../img/${this.state.board[2]}`}
               onClick={this.toggle.bind(this)}
+              alt="flop-card3"
             />
             <img
               data-card="3"
               className="turn board-card"
               src={`../img/${this.state.board[3]}`}
               onClick={this.toggle.bind(this)}
+              alt="turn-card"
             />
             <img
               data-card="4"
               className="river board-card"
               src={`../img/${this.state.board[4]}`}
               onClick={this.toggle.bind(this)}
+              alt="river-card"
             />
           </div>
         </div>

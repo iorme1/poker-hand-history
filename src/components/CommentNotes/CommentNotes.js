@@ -8,7 +8,6 @@ import {
   ModalBody,
   ModalFooter,
   Container,
-  ButtonGroup
 } from 'reactstrap';
 import './CommentNotes.scss';
 

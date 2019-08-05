@@ -16,4 +16,5 @@ describe('CardModalRow Component', () => {
     const image = findByTestAttr(component, 'modal-card-image')
     expect(image.length).toBe(1);
   });
+
 });

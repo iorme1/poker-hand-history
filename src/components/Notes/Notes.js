@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Input,
-  Label,
-  Form,
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  Container,
-  ButtonGroup
-} from 'reactstrap';
-import Action from '../Action/Action';
+import { Input } from 'reactstrap';
+//import Action from '../Action/Action';
 import StreetNotes from '../StreetNotes/StreetNotes';
 import CommentNotes from  '../CommentNotes/CommentNotes';
 import './Notes.scss';

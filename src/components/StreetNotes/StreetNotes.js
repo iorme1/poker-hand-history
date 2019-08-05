@@ -7,8 +7,6 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  Container,
-  ButtonGroup
 } from 'reactstrap';
 import './StreetNotes.scss';
 

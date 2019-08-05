@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Container,
   Form,
-  FormGroup,
   Input,
-  Label,
   Button,
   Modal,
   ModalBody,
@@ -224,12 +221,14 @@ class Villain extends Component {
           className="board-card"
           src={`../img/${this.state.holdings[0]}`}
           onClick={this.toggle.bind(this)}
+          alt="villain-holding1"
         />
         <img
           data-card="1"
           className="board-card"
           src={`../img/${this.state.holdings[1]}`}
           onClick={this.toggle.bind(this)}
+          alt="villain-holding2"
         />
         <p
           className="position-stack-edit mb-2"

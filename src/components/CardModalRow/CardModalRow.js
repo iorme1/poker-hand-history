@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Card } from '../../mapping';
+import React  from 'react';
 import './CardModalRow.scss';
 
 const CardModalRow = (props) => {
@@ -10,6 +9,7 @@ const CardModalRow = (props) => {
         data-test="modal-card-image"
         src={`../img/${props.src}`}
         onClick={props.setCard}
+        alt="card-img"
       />
     </div>
   );
