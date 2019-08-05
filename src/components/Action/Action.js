@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Action.scss';
 
 class Action extends Component {
   state = {
@@ -9,7 +10,7 @@ class Action extends Component {
   render() {
     return (
       <div>
-        
+
       </div>
     );
   }

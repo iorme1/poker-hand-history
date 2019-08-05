@@ -10,9 +10,10 @@ import {
   Container,
   ButtonGroup
 } from 'reactstrap';
-import Action from './Action';
-import StreetNotes from './StreetNotes';
-import CommentNotes from  './CommentNotes';
+import Action from '../Action/Action';
+import StreetNotes from '../StreetNotes/StreetNotes';
+import CommentNotes from  '../CommentNotes/CommentNotes';
+import './Notes.scss';
 
 class Notes extends Component {
   state = {

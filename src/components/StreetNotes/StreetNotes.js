@@ -10,6 +10,7 @@ import {
   Container,
   ButtonGroup
 } from 'reactstrap';
+import './StreetNotes.scss';
 
 class StreetNotes extends Component {
   state = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import CreateHandHistory from './components/CreateHandHistory';
+import './App.scss';
+import CreateHandHistory from './components/CreateHandHistory/CreateHandHistory';
 
 function App() {
   return (

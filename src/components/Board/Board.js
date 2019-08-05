@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Board.scss';
 import {
   Container,
   Form,
@@ -9,60 +10,79 @@ import {
   Modal,
   ModalBody,
   ModalFooter
- } from 'reactstrap';
- import { Card } from '../mapping';
- import CardModalRow from './card-modal-row';
+} from 'reactstrap';
+import { Card } from '../../mapping';
+import CardModalRow from '../CardModalRow/CardModalRow';
 
-class Villain extends Component {
+class Board extends Component {
   state = {
-    holdings: ["back1.png", "back1.png"],
-    position: "?",
-    stack_size: 0,
-    holdingsIdx: 0,
+    board: Array(5).fill("back1.png"),
     modal: false,
-    playerModal: false
+    boardIdx: 0
   }
 
   toggle(event) {
-    let holdingsIdx = event.target.getAttribute('data-card');
+    let boardIdx = event.target.getAttribute('data-card');
 
     this.setState({
       modal: !this.state.modal,
-      holdingsIdx
+      boardIdx
     });
   }
 
-  togglePlayerDetails() {
-    this.setState({
-      playerModal: !this.state.playerModal
-    })
-  }
-
-  setStackSize(event) {
-    this.setState({
-      stack_size: event.target.value
-    })
-  }
-
-  setPosition(event) {
-    this.setState({
-      position: event.target.value
-    })
-  }
-
   setCard(card) {
-    let nextHoldings = [...this.state.holdings];
-    nextHoldings[this.state.holdingsIdx] = card
+    let nextBoard = [...this.state.board];
+    nextBoard[this.state.boardIdx] = card
 
     this.setState({
-      holdings: nextHoldings,
+      board: nextBoard,
       modal: !this.state.modal
     });
   }
 
   render() {
     return (
-      <div>
+      <div className="container-fluid mt-3">
+        <div className="row">
+          <div className="col-12 text-center">
+            <h3 className="board-title">Board</h3>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 text-center">
+            <img
+              data-card="0"
+              className="flop1 board-card"
+              src={`../img/${this.state.board[0]}`}
+              onClick={this.toggle.bind(this)}
+            />
+            <img
+              data-card="1"
+              className="flop2 board-card"
+              src={`../img/${this.state.board[1]}`}
+              onClick={this.toggle.bind(this)}
+            />
+            <img
+              data-card="2"
+              className="flop3 board-card"
+              src={`../img/${this.state.board[2]}`}
+              onClick={this.toggle.bind(this)}
+            />
+            <img
+              data-card="3"
+              className="turn board-card"
+              src={`../img/${this.state.board[3]}`}
+              onClick={this.toggle.bind(this)}
+            />
+            <img
+              data-card="4"
+              className="river board-card"
+              src={`../img/${this.state.board[4]}`}
+              onClick={this.toggle.bind(this)}
+            />
+          </div>
+        </div>
+
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle.bind(this)}
@@ -173,72 +193,9 @@ class Villain extends Component {
             <Button color="secondary" onClick={this.toggle.bind(this)}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        <Modal
-          isOpen={this.state.playerModal}
-          toggle={this.togglePlayerDetails.bind(this)}
-          className={this.props.className}
-        >
-          <ModalBody>
-            <Form onSubmit={(e) => e.preventDefault()}>
-              <div className="row">
-                <div className="col-12 text-center">
-                  <h4 className="form-label">Stack Size</h4>
-                </div>
-              </div>
-              <Input
-                type="number"
-                onChange={this.setStackSize.bind(this)}
-              />
-              <div className="row">
-                <div className="col-12 text-center">
-                  <h4 className="form-label">Position</h4>
-                </div>
-              </div>
-              <Input
-                type="select"
-                onChange={this.setPosition.bind(this)}
-               >
-                 <option value="unknown">unknown</option>
-                 <option value="utg">utg</option>
-                 <option value="utg1">utg1</option>
-                 <option value="utg2">utg2</option>
-                 <option value="lojack">lojack</option>
-                 <option value="hijack">hijack</option>
-                 <option value="cutoff">cutoff</option>
-                 <option value="button">button</option>
-                 <option value="sb">sb</option>
-                 <option value="bb">bb</option>
-               </Input>
-            </Form>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={this.togglePlayerDetails.bind(this)}>Save</Button>
-          </ModalFooter>
-        </Modal>
-        <p className="player-pos-stack">
-          {this.state.position + " / $" + this.state.stack_size}
-        </p>
-        <img
-          data-card="0"
-          className="board-card"
-          src={`../img/${this.state.holdings[0]}`}
-          onClick={this.toggle.bind(this)}
-        />
-        <img
-          data-card="1"
-          className="board-card"
-          src={`../img/${this.state.holdings[1]}`}
-          onClick={this.toggle.bind(this)}
-        />
-        <p
-          className="position-stack-edit mb-2"
-          onClick={this.togglePlayerDetails.bind(this)}
-        >
-          pos/$
-        </p>
-      </div>
-    );
+     </div>
+   );
   }
 }
 
-export default Villain;
+export default Board;

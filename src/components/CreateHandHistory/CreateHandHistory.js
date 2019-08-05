@@ -8,11 +8,12 @@ import {
   Modal,
   ModalBody,
   ModalFooter
- } from 'reactstrap';
- import Board from './board';
- import Villain from './Villain';
- import Hero from './Hero';
- import Notes from './Notes';
+} from 'reactstrap';
+import Board from '../Board/Board';
+import Villain from '../Villain/Villain';
+import Hero from '../Hero/Hero';
+import Notes from '../Notes/Notes';
+import './CreateHandHistory.scss';
 
 class CreateHandHistory extends Component {
   state = {

@@ -10,6 +10,7 @@ import {
   Container,
   ButtonGroup
 } from 'reactstrap';
+import './CommentNotes.scss';
 
 class CommentNotes extends Component {
   state = {

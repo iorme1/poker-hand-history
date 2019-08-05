@@ -9,17 +9,19 @@ import {
   Modal,
   ModalBody,
   ModalFooter
- } from 'reactstrap';
- import { Card } from '../mapping';
- import CardModalRow from './card-modal-row';
+} from 'reactstrap';
+import { Card } from '../../mapping';
+import CardModalRow from '../CardModalRow/CardModalRow';
+import './Villain.scss';
 
-class Hero extends Component {
+class Villain extends Component {
   state = {
     holdings: ["back1.png", "back1.png"],
     position: "?",
     stack_size: 0,
     holdingsIdx: 0,
-    modal: false
+    modal: false,
+    playerModal: false
   }
 
   toggle(event) {
@@ -48,7 +50,6 @@ class Hero extends Component {
       position: event.target.value
     })
   }
-
 
   setCard(card) {
     let nextHoldings = [...this.state.holdings];
@@ -215,7 +216,6 @@ class Hero extends Component {
             <Button onClick={this.togglePlayerDetails.bind(this)}>Save</Button>
           </ModalFooter>
         </Modal>
-        <h4 className="player-title"> Hero </h4>
         <p className="player-pos-stack">
           {this.state.position + " / $" + this.state.stack_size}
         </p>
@@ -242,4 +242,4 @@ class Hero extends Component {
   }
 }
 
-export default Hero;
+export default Villain;

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Card } from '../mapping';
+import { Card } from '../../mapping';
+import './CardModalRow.scss';
 
 const CardModalRow = (props) => {
   return (
