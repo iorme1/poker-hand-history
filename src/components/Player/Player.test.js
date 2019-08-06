@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Hero from './Hero';
+import Player from './Player';
 import { findByTestAttr, checkProps } from './../../../Utils';
 
-describe('Hero Component', () => {
+describe('Player Component', () => {
 
   describe('Checking PropTypes', () => {
 
@@ -13,7 +13,7 @@ describe('Hero Component', () => {
             handLabel: "Test String"
           };
 
-          const propsErr = checkProps(Hero, expectedProps);
+          const propsErr = checkProps(Player, expectedProps);
 
           expect(propsErr).toBeUndefined();
 

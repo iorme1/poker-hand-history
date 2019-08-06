@@ -9,16 +9,18 @@ import {
 } from 'reactstrap';
 import { Cards } from '../../mapping';
 import ModalCardImage from '../ModalCardImage/ModalCardImage';
-import './Hero.scss';
+import './Player.scss';
 import PropTypes from 'prop-types';
 
-class Hero extends Component {
+class Player extends Component {
   state = {
     holdings: ["back1.png", "back1.png"],
     position: "?",
     stack_size: 0,
     holdingsIdx: 0,
-    modal: false
+    modal: false,
+    playerModal: false,
+    player_type: null
   }
 
   toggle(event) {
@@ -48,7 +50,6 @@ class Hero extends Component {
     })
   }
 
-
   setCard(card) {
     let nextHoldings = [...this.state.holdings];
     nextHoldings[this.state.holdingsIdx] = card
@@ -70,14 +71,14 @@ class Hero extends Component {
           <ModalBody>
             <div className="row">
               <div className="col-12">
-                {Cards.map((card, i) => {
+                {Cards.map((card,i) => {
                   return (
                     <ModalCardImage
                       src={card}
                       setCard={this.setCard.bind(this, card)}
                       key={`${card}${i}`}
                     />
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -128,7 +129,6 @@ class Hero extends Component {
             <Button onClick={this.togglePlayerDetails.bind(this)}>Save</Button>
           </ModalFooter>
         </Modal>
-        <h4 className="player-title"> Hero </h4>
         <p className="player-pos-stack">
           {this.state.position + " / $" + this.state.stack_size}
         </p>
@@ -137,14 +137,14 @@ class Hero extends Component {
           className="board-card"
           src={`../img/${this.state.holdings[0]}`}
           onClick={this.toggle.bind(this)}
-          alt="hero-holdings1"
+          alt="holding1"
         />
         <img
           data-card="1"
           className="board-card"
           src={`../img/${this.state.holdings[1]}`}
           onClick={this.toggle.bind(this)}
-          alt="hero-holdings2"
+          alt="holding2"
         />
         <p
           className="position-stack-edit mb-2"
@@ -157,8 +157,8 @@ class Hero extends Component {
   }
 }
 
-Hero.propTypes = {
+Player.propTypes = {
   handLabel: PropTypes.string
 }
 
-export default Hero;
+export default Player;

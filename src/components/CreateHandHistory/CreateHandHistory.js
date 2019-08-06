@@ -8,8 +8,7 @@ import {
   ModalFooter
 } from 'reactstrap';
 import Board from '../Board/Board';
-import Villain from '../Villain/Villain';
-import Hero from '../Hero/Hero';
+import Player from '../Player/Player';
 import Notes from '../Notes/Notes';
 import './CreateHandHistory.scss';
 
@@ -76,6 +75,7 @@ class CreateHandHistory extends Component {
             <Button onClick={this.toggle.bind(this)}>Save</Button>
           </ModalFooter>
         </Modal>
+
         <div className="row mt-2">
           <div className="col-12 text-center">
             <p
@@ -94,7 +94,11 @@ class CreateHandHistory extends Component {
 
         <div className="row no-gutters">
           <div className="col-3 text-center">
-            <Hero
+            <h4 className="player-title">
+              Hero
+            </h4>
+            <Player
+             player_type="Hero"
              handLabel={this.state.label}
             />
           </div>
@@ -112,7 +116,8 @@ class CreateHandHistory extends Component {
             </h4>
             {villainPlaceholders.map((vil, i) => {
               return (
-                <Villain
+                <Player
+                  player_type="Villain"
                   handLabel={this.state.label}
                   key={`villain${i}`}
                 />
