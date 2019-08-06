@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import CardModalRow from './CardModalRow';
+import ModalCardImage from './ModalCardImage';
 import { findByTestAttr, checkProps } from './../../../Utils';
 
-const setUp = ( props={} ) => shallow(<CardModalRow {...props} />);
+const setUp = ( props={} ) => shallow(<ModalCardImage {...props} />);
 
-describe('CardModalRow Component', () => {
+describe('ModalCardImage Component', () => {
   let component;
 
   describe('Checking PropTypes', () => {
@@ -17,7 +17,7 @@ describe('CardModalRow Component', () => {
             setCard: function testFunction(){}
           };
 
-          const propsErr = checkProps(CardModalRow, expectedProps);
+          const propsErr = checkProps(ModalCardImage, expectedProps);
 
           expect(propsErr).toBeUndefined();
 

@@ -1,0 +1,10 @@
+.my-modal-card {
+  width: 60px;
+  height: auto;
+  transition-duration: 0.2s;
+}
+
+.my-modal-card:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}

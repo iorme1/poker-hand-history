@@ -1,10 +1,9 @@
 import React  from 'react';
-import './CardModalRow.scss';
+import './ModalCardImage.scss';
 import PropTypes from 'prop-types';
 
-const CardModalRow = (props) => {
+const ModalCardImage = (props) => {
   return (
-    <div className="col-2">
       <img
         className="my-modal-card"
         data-test="modal-card-image"
@@ -12,13 +11,12 @@ const CardModalRow = (props) => {
         onClick={props.setCard}
         alt="card-img"
       />
-    </div>
   );
 }
 
-CardModalRow.propTypes = {
+ModalCardImage.propTypes = {
   setCard: PropTypes.func,
   src: PropTypes.string
 }
 
-export default CardModalRow;
+export default ModalCardImage
