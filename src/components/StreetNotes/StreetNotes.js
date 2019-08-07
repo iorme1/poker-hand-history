@@ -43,7 +43,7 @@ class StreetNotes extends Component {
   render() {
     if (this.props.active) {
       return (
-        <div>
+        <div data-test="street-notes-container">
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggleNotesModal.bind(this)}

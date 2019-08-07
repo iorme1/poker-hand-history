@@ -29,7 +29,7 @@ class CommentNotes extends Component {
   render() {
     if (this.props.active) {
       return (
-        <Container>
+        <div data-test="comment-notes-container">
           <Modal
             isOpen={this.state.modal}
             toggle={this.toggleNotesModal.bind(this)}
@@ -62,7 +62,7 @@ class CommentNotes extends Component {
               <p className="notes">{this.state.comment_notes}</p>
             </div>
           </div>
-        </Container>
+        </div>
       );
     }
     return null;
