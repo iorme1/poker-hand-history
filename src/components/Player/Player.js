@@ -150,7 +150,7 @@ class Player extends Component {
           className="position-stack-edit mb-2"
           onClick={this.togglePlayerDetails.bind(this)}
         >
-          pos/$
+          pos/$ &#x270E;
         </p>
       </div>
     );
@@ -158,7 +158,7 @@ class Player extends Component {
 }
 
 Player.propTypes = {
-  handLabel: PropTypes.string
+  player_type: PropTypes.string
 }
 
 export default Player;

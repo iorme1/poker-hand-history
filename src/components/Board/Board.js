@@ -8,7 +8,6 @@ import {
 } from 'reactstrap';
 import { Cards } from '../../mapping';
 import ModalCardImage from '../ModalCardImage/ModalCardImage';
-import PropTypes from 'prop-types';
 
 class Board extends Component {
   state = {
@@ -111,10 +110,6 @@ class Board extends Component {
      </div>
    );
   }
-}
-
-Board.propTypes = {
-  handLabel: PropTypes.string
 }
 
 export default Board;

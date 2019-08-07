@@ -10,7 +10,7 @@ describe('Player Component', () => {
       it('Should not throw a warning', () => {
 
           const expectedProps = {
-            handLabel: "Test String"
+            player_type: "Test String"
           };
 
           const propsErr = checkProps(Player, expectedProps);
