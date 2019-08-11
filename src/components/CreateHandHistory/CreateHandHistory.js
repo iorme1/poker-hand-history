@@ -6,10 +6,15 @@ import Board from '../Board/Board';
 import Player from '../Player/Player';
 import Notes from '../Notes/Notes';
 import './CreateHandHistory.scss';
+import { PreflopOrder, PostflopOrder } from '../../mapping.js';
 
 class CreateHandHistory extends Component {
   state = {
     villains: 1,
+    positions: [],
+    activePlayerIdx: 0,
+    action_open: true,
+    pot_size: 0
   }
 
   incrementVillains() {
@@ -20,6 +25,18 @@ class CreateHandHistory extends Component {
   decrementVillains() {
     if (this.state.villains === 1) return;
     this.setState({ villains: this.state.villains - 1 })
+  }
+
+  addPosition(pos) {
+    let nextPositions = this.state.positions;
+    nextPositions.push(pos);
+    nextPositions.sort((a,b) => PreflopOrder[a] - PreflopOrder[b]);
+    this.setState({ positions: nextPositions });
+  }
+
+  setPostflopOrder() {
+    let nextPositions = this.state.positions;
+    nextPositions.sort((a,b) => PostflopOrder[a] - PostflopOrder[b]);
   }
 
   render() {
@@ -53,6 +70,7 @@ class CreateHandHistory extends Component {
             </h4>
             <Player
               player_type="Hero"
+              addPosition={this.addPosition.bind(this)}
             />
           </div>
           <div className="col-6">
@@ -67,6 +85,7 @@ class CreateHandHistory extends Component {
               return (
                 <Player
                   player_type="Villain"
+                  addPosition={this.addPosition.bind(this)}
                   key={`villain${i}`}
                 />
               );

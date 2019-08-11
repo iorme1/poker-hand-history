@@ -45,9 +45,9 @@ class Player extends Component {
   }
 
   setPosition(event) {
-    this.setState({
-      position: event.target.value
-    })
+    let position = event.target.value;
+    this.setState({ position });
+    this.props.addPosition(position);
   }
 
   setCard(card) {
@@ -158,7 +158,8 @@ class Player extends Component {
 }
 
 Player.propTypes = {
-  player_type: PropTypes.string
+  player_type: PropTypes.string,
+  addPosition: PropTypes.func
 }
 
 export default Player;

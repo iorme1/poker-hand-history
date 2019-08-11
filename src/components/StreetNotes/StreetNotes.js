@@ -48,29 +48,34 @@ class StreetNotes extends Component {
             isOpen={this.state.modal}
             toggle={this.toggleNotesModal.bind(this)}
             className={this.props.className}
+            data-test="edit-notes-modal"
           >
             <ModalBody>
               <Form onSubmit={(e) => e.preventDefault()}>
                 <Label for="preflop">Preflop Notes</Label>
                 <Input
+                  data-test="input-set-pfn"
                   onChange={this.setPreflopNotes.bind(this)}
                   type="text"
                   name="preflop"
                 />
                 <Label for="preflop">Flop Notes</Label>
                 <Input
+                  data-test="input-set-fn"
                   onChange={this.setFlopNotes.bind(this)}
                   type="text"
                   name="flop"
                 />
                 <Label for="turn">Turn Notes</Label>
                 <Input
+                  data-test="input-set-tn"
                   onChange={this.setTurnNotes.bind(this)}
                   type="text"
                   name="turn"
                 />
                 <Label for="river">River Notes</Label>
                 <Input
+                  data-test="input-set-rn"
                   onChange={this.setRiverNotes.bind(this)}
                   type="text"
                   name="river"
@@ -85,20 +90,33 @@ class StreetNotes extends Component {
             <div className="col-12 text-center">
               <p
                 className="edit-link"
-                onClick={this.toggleNotesModal.bind(this)}>Edit Notes
+                onClick={this.toggleNotesModal.bind(this)}
+                data-test="open-toggle-notes-modal"
+              >
+                Edit Notes
               </p>
             </div>
           </div>
           <div className="row no-gutters">
             <div className="col-12">
               <p className="notes-label">Preflop</p>
-              <p className="notes">{this.state.preflop_notes}</p>
+              <p
+                className="notes"
+                data-test="pf-notes"
+              >
+                {this.state.preflop_notes}
+              </p>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
               <p className="notes-label">Flop</p>
-              <p className="notes">{this.state.flop_notes}</p>
+              <p
+                className="notes"
+                data-test="fl-notes"
+              >
+                {this.state.flop_notes}
+              </p>
             </div>
           </div>
           <div className="row">
@@ -106,13 +124,23 @@ class StreetNotes extends Component {
               <p className="notes-label">
                 Turn
               </p>
-              <p className="notes">{this.state.turn_notes}</p>
+              <p
+                className="notes"
+                data-test="tn-notes"
+              >
+                {this.state.turn_notes}
+              </p>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
               <p className="notes-label">River</p>
-              <p className="notes">{this.state.river_notes}</p>
+              <p
+                className="notes"
+                data-test="rv-notes"
+              >
+                {this.state.river_notes}
+              </p>
             </div>
           </div>
         </div>

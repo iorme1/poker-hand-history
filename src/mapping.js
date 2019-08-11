@@ -9,3 +9,27 @@ export const Cards = [
   'JS.png','JH.png','QC.png','QD.png','QS.png','QH.png',
   'KC.png','KD.png','KS.png','KH.png','back1.png','back2.png'
 ];
+
+export const PreflopOrder = {
+  "utg": 0,
+  "utg1": 1,
+  "utg2": 2,
+  "lojack": 3,
+  "hijack": 4,
+  "cutoff": 5,
+  "button": 6,
+  "sb": 7,
+  "bb": 8
+};
+
+export const PostflopOrder = {
+  "sb": 0,
+  "bb": 1,
+  "utg": 2,
+  "utg1": 3,
+  "utg2": 4,
+  "lojack": 5,
+  "hijack": 6,
+  "cutoff": 7,
+  "button": 8
+}
