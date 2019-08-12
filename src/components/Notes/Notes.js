@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Input } from 'reactstrap';
-//import Action from '../Action/Action';
+import Action from '../Action/Action';
 import StreetNotes from '../StreetNotes/StreetNotes';
 import CommentNotes from '../CommentNotes/CommentNotes';
 import './Notes.scss';
+import PropTypes from 'prop-types';
 
 class Notes extends Component {
   state = {
@@ -39,6 +40,8 @@ class Notes extends Component {
   }
 
   render() {
+    let { positions } = this.props;
+
     return (
       <div>
         <div className="row text-center mt-3">
@@ -61,9 +64,17 @@ class Notes extends Component {
         <CommentNotes
           active={this.state.show_comment_notes}
         />
+        <Action
+          active={this.state.show_actions}
+          positions={positions}
+        />
       </div>
     );
   }
+}
+
+Notes.propTypes = {
+  positions: PropTypes.array,
 }
 
 export default Notes;

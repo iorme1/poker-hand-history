@@ -7,7 +7,6 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  Container,
 } from 'reactstrap';
 import './CommentNotes.scss';
 import PropTypes from 'prop-types';

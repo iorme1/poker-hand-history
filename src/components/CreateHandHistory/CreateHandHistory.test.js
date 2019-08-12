@@ -14,10 +14,7 @@ describe('CreateHandHistory Component', () => {
         wrapper = shallow(<CreateHandHistory />);
         mockState = {
           villains: 1,
-          positions: [],
-          activePlayerIdx: 0,
-          action_open: true,
-          pot_size: 0
+          positions: []
         };
       });
 

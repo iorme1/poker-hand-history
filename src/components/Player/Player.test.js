@@ -11,7 +11,8 @@ describe('Player Component', () => {
 
           const expectedProps = {
             player_type: "Test String",
-            addPosition: function(){}
+            addPosition: function(){},
+            positionsTaken: new Set()
           };
 
           const propsErr = checkProps(Player, expectedProps);

@@ -33,3 +33,8 @@ export const PostflopOrder = {
   "cutoff": 7,
   "button": 8
 }
+
+export const Positions = [
+  "utg","utg1", "utg2", "lojack", "hijack",
+  "cutoff", "button", "sb", "bb"
+];

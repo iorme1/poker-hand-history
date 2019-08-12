@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalFooter
 } from 'reactstrap';
-import { Cards } from '../../mapping';
+import { Cards, Positions } from '../../mapping';
 import ModalCardImage from '../ModalCardImage/ModalCardImage';
 import './Player.scss';
 import PropTypes from 'prop-types';
@@ -61,6 +61,9 @@ class Player extends Component {
   }
 
   render() {
+    let { positionsTaken } = this.props;
+    let remainingPositions = Positions.filter(pos => !positionsTaken.has(pos));
+
     return (
       <div>
         <Modal
@@ -112,16 +115,12 @@ class Player extends Component {
                 type="select"
                 onChange={this.setPosition.bind(this)}
                >
-                 <option value="unknown">unknown</option>
-                 <option value="utg">utg</option>
-                 <option value="utg1">utg1</option>
-                 <option value="utg2">utg2</option>
-                 <option value="lojack">lojack</option>
-                 <option value="hijack">hijack</option>
-                 <option value="cutoff">cutoff</option>
-                 <option value="button">button</option>
-                 <option value="sb">sb</option>
-                 <option value="bb">bb</option>
+                <option value="unknown">unknown</option>
+                {remainingPositions.map((pos,i) => {
+                  return (
+                    <option key={`pos${i}`} value={pos}>{pos}</option>
+                  );
+                })}
                </Input>
             </Form>
           </ModalBody>
@@ -159,7 +158,8 @@ class Player extends Component {
 
 Player.propTypes = {
   player_type: PropTypes.string,
-  addPosition: PropTypes.func
+  addPosition: PropTypes.func,
+  positionTaken: PropTypes.object
 }
 
 export default Player;
