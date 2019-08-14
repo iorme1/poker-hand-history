@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Input } from 'reactstrap';
-import Action from '../Action/Action';
 import StreetNotes from '../StreetNotes/StreetNotes';
 import CommentNotes from '../CommentNotes/CommentNotes';
 import './Notes.scss';
-import PropTypes from 'prop-types';
 
 class Notes extends Component {
   state = {
     show_street_notes: false,
-    show_actions: false,
     show_comment_notes: false
   }
 
@@ -19,9 +16,6 @@ class Notes extends Component {
     switch(event.target.value) {
       case "street":
         this.setState({ show_street_notes: true })
-        break;
-      case "actions":
-        this.setState({ show_actions: true })
         break;
       case "comment":
         this.setState({ show_comment_notes: true })
@@ -34,14 +28,11 @@ class Notes extends Component {
   resetNotesDisplay() {
     this.setState({
       show_street_notes: false,
-      show_actions: false,
       show_comment_notes: false
     });
   }
 
   render() {
-    let { positions } = this.props;
-
     return (
       <div>
         <div className="row text-center mt-3">
@@ -53,7 +44,6 @@ class Notes extends Component {
             >
               <option value="none">hide notes</option>
               <option value="street">street notes</option>
-              <option value="actions">actions</option>
               <option value="comment">comment notes</option>
             </Input>
           </div>
@@ -64,17 +54,9 @@ class Notes extends Component {
         <CommentNotes
           active={this.state.show_comment_notes}
         />
-        <Action
-          active={this.state.show_actions}
-          positions={positions}
-        />
       </div>
     );
   }
-}
-
-Notes.propTypes = {
-  positions: PropTypes.array,
 }
 
 export default Notes;

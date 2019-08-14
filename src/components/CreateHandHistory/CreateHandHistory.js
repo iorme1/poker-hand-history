@@ -25,9 +25,10 @@ class CreateHandHistory extends Component {
     this.setState({ villains: this.state.villains - 1 })
   }
 
-  addPosition(pos) {
-    let nextPositions = [...this.state.positions];
-    nextPositions.push(pos);
+  addPosition(newPos, lastPos) {
+    let nextPositions = [...this.state.positions]
+      .filter(pos => pos !== lastPos);
+    nextPositions.push(newPos);
     nextPositions.sort((a,b) => PreflopOrder[a] - PreflopOrder[b]);
 
     this.setState({ positions: nextPositions });
@@ -70,9 +71,7 @@ class CreateHandHistory extends Component {
           </div>
           <div className="col-6">
             <Board/>
-            <Notes
-              positions={this.state.positions}
-            />
+            <Notes/>
           </div>
           <div className="col-3 text-center">
             <h4 className="player-title">

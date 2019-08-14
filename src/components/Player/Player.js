@@ -46,8 +46,8 @@ class Player extends Component {
 
   setPosition(event) {
     let position = event.target.value;
+    this.props.addPosition(position, this.state.position);
     this.setState({ position });
-    this.props.addPosition(position);
   }
 
   setCard(card) {
