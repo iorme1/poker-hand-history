@@ -37,12 +37,18 @@ describe('StreetNotes Component', () => {
   describe("onchange methods", () => {
     let wrapper;
     let mockState = {
-      preflop_notes: "no notes added...",
-      flop_notes: "no notes added...",
-      turn_notes: "no notes added...",
-      river_notes: "no notes added...",
+      preflop_notes: "",
+      flop_notes: "",
+      turn_notes: "",
+      river_notes: "",
+      small_blind: 0,
+      big_blind: 0,
+      straddle: 0,
+      flop_pot_size: 0,
+      turn_pot_size: 0,
+      river_pot_size: 0,
       modal: false,
-    }
+    };
 
     beforeEach(() => {
       wrapper = shallow(<StreetNotes />);

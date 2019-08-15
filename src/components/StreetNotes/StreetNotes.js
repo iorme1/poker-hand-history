@@ -13,10 +13,16 @@ import PropTypes from 'prop-types';
 
 class StreetNotes extends Component {
   state = {
-    preflop_notes: "no notes added...",
-    flop_notes: "no notes added...",
-    turn_notes: "no notes added...",
-    river_notes: "no notes added...",
+    preflop_notes: "",
+    flop_notes: "",
+    turn_notes: "",
+    river_notes: "",
+    small_blind: 0,
+    big_blind: 0,
+    straddle: 0,
+    flop_pot_size: 0,
+    turn_pot_size: 0,
+    river_pot_size: 0,
     modal: false,
   };
 
@@ -40,8 +46,14 @@ class StreetNotes extends Component {
     this.setState({ river_notes: event.target.value })
   }
 
+
   render() {
     if (this.props.active) {
+      let {
+        small_blind, big_blind, straddle,
+        flop_pot_size, turn_pot_size, river_pot_size
+      } = this.state;
+
       return (
         <div data-test="street-notes-container">
           <Modal
@@ -52,12 +64,78 @@ class StreetNotes extends Component {
           >
             <ModalBody>
               <Form onSubmit={(e) => e.preventDefault()}>
+                <div className="row mb-2">
+                  <div className="col-4">
+                    <Label for="sb-input">Small Blind</Label>
+                    <Input
+                      name="sb-input"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ small_blind: parseInt(e.target.value) })
+                      }
+                    />
+                  </div>
+                  <div className="col-4">
+                    <Label for="bb-input">Big Blind</Label>
+                    <Input
+                      name="bb-input"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ big_blind: parseInt(e.target.value) })
+                      }
+                    />
+                  </div>
+                  <div className="col-4">
+                    <Label for="straddle-input">Straddle</Label>
+                    <Input
+                      name="straddle-input"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ straddle: parseInt(e.target.value) })
+                      }
+                      defaultValue={0}
+                    />
+                  </div>
+                </div>
+                <div className="row mb-2">
+                  <div className="col-4">
+                    <Label for="fl-pot">Flop Pot Size</Label>
+                    <Input
+                      name="fl-pot"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ flop_pot_size: parseInt(e.target.value) })
+                      }
+                    />
+                  </div>
+                  <div className="col-4">
+                    <Label for="tn-pot">Turn Pot Size</Label>
+                    <Input
+                      name="tn-pot"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ turn_pot_size: parseInt(e.target.value) })
+                      }
+                    />
+                  </div>
+                  <div className="col-4">
+                    <Label for="rv-pot">River Pot Size</Label>
+                    <Input
+                      name="rv-pot"
+                      type="number"
+                      onChange={(e) => this
+                        .setState({ river_pot_size: parseInt(e.target.value) })
+                      }
+                    />
+                  </div>
+                </div>
                 <Label for="preflop">Preflop Notes</Label>
                 <Input
                   data-test="input-set-pfn"
                   onChange={this.setPreflopNotes.bind(this)}
                   type="text"
                   name="preflop"
+                  value={this.state.preflop_notes || ""}
                 />
                 <Label for="preflop">Flop Notes</Label>
                 <Input
@@ -99,7 +177,12 @@ class StreetNotes extends Component {
           </div>
           <div className="row no-gutters">
             <div className="col-12">
-              <p className="notes-label">Preflop</p>
+              <p className="notes-label">
+                {"Preflop "}
+                <span className="pot-size">
+                  (${small_blind + big_blind + straddle})
+                </span>
+              </p>
               <p
                 className="notes"
                 data-test="pf-notes"
@@ -110,7 +193,12 @@ class StreetNotes extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <p className="notes-label">Flop</p>
+              <p className="notes-label">
+                {"Flop "}
+                <span className="pot-size">
+                  (${flop_pot_size})
+                </span>
+              </p>
               <p
                 className="notes"
                 data-test="fl-notes"
@@ -122,7 +210,10 @@ class StreetNotes extends Component {
           <div className="row">
             <div className="col-12">
               <p className="notes-label">
-                Turn
+                {"Turn "}
+                <span className="pot-size">
+                  (${turn_pot_size})
+                </span>
               </p>
               <p
                 className="notes"
@@ -134,7 +225,12 @@ class StreetNotes extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <p className="notes-label">River</p>
+              <p className="notes-label">
+                {"River "}
+                <span className="pot-size">
+                  (${river_pot_size})
+                </span>
+              </p>
               <p
                 className="notes"
                 data-test="rv-notes"

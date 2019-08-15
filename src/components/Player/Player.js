@@ -33,15 +33,11 @@ class Player extends Component {
   }
 
   togglePlayerDetails() {
-    this.setState({
-      playerModal: !this.state.playerModal
-    })
+    this.setState({ playerModal: !this.state.playerModal });
   }
 
   setStackSize(event) {
-    this.setState({
-      stack_size: event.target.value
-    })
+    this.setState({ stack_size: event.target.value });
   }
 
   setPosition(event) {
@@ -52,7 +48,7 @@ class Player extends Component {
 
   setCard(card) {
     let nextHoldings = [...this.state.holdings];
-    nextHoldings[this.state.holdingsIdx] = card
+    nextHoldings[this.state.holdingsIdx] = card;
 
     this.setState({
       holdings: nextHoldings,
