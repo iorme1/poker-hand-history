@@ -15,21 +15,17 @@ import PropTypes from 'prop-types';
 class Player extends Component {
   state = {
     holdings: ["back1.png", "back1.png"],
+    holdingsIdx: 0,
     position: "?",
     stack_size: 0,
-    holdingsIdx: 0,
     modal: false,
     playerModal: false,
-    player_type: null
+    player_type: null,
+    cardsSelected: 0
   }
 
-  toggle(event) {
-    let holdingsIdx = event.target.getAttribute('data-card');
-
-    this.setState({
-      modal: !this.state.modal,
-      holdingsIdx
-    });
+  toggle() {
+    this.setState({ modal: !this.state.modal });
   }
 
   togglePlayerDetails() {
@@ -46,14 +42,37 @@ class Player extends Component {
     this.setState({ position });
   }
 
-  setCard(card) {
+  removeCard() {
     let nextHoldings = [...this.state.holdings];
-    nextHoldings[this.state.holdingsIdx] = card;
+    let nextHoldingsIdx = this.state.holdingsIdx - 1;
+    nextHoldings[nextHoldingsIdx] = "back1.png";
 
     this.setState({
-      holdings: nextHoldings,
-      modal: !this.state.modal
-    });
+      cardsSelected: this.state.cardsSelected - 1,
+      holdingsIdx: nextHoldingsIdx,
+      holdings: nextHoldings
+    })
+  }
+
+  setCard(card) {
+    let nextHoldings = [...this.state.holdings];
+    let nextCardsSelected = this.state.cardsSelected + 1;
+    nextHoldings[this.state.holdingsIdx] = card;
+
+    if (nextCardsSelected === 2) {
+      this.setState({
+        holdings: nextHoldings,
+        modal: !this.state.modal,
+        cardsSelected: 0,
+        holdingsIdx: 0
+      });
+    } else {
+      this.setState({
+        cardsSelected: this.state.cardsSelected + 1,
+        holdings: nextHoldings,
+        holdingsIdx: this.state.holdingsIdx + 1
+      });
+    }
   }
 
   render() {
@@ -75,6 +94,7 @@ class Player extends Component {
                     <ModalCardImage
                       src={card}
                       setCard={this.setCard.bind(this, card)}
+                      removeCard={this.removeCard.bind(this)}
                       key={`${card}${i}`}
                     />
                   )
@@ -127,20 +147,18 @@ class Player extends Component {
         <p className="player-pos-stack">
           {this.state.position + " / $" + this.state.stack_size}
         </p>
-        <img
-          data-card="0"
-          className="board-card"
-          src={`../img/${this.state.holdings[0]}`}
-          onClick={this.toggle.bind(this)}
-          alt="holding1"
-        />
-        <img
-          data-card="1"
-          className="board-card"
-          src={`../img/${this.state.holdings[1]}`}
-          onClick={this.toggle.bind(this)}
-          alt="holding2"
-        />
+        <div className="holdings-container" onClick={this.toggle.bind(this)}>
+          <img
+            className="board-card"
+            src={`../img/${this.state.holdings[0]}`}
+            alt="holding1"
+          />
+          <img
+            className="board-card"
+            src={`../img/${this.state.holdings[1]}`}
+            alt="holding2"
+          />
+        </div>
         <p
           className="position-stack-edit mb-2"
           onClick={this.togglePlayerDetails.bind(this)}

@@ -27,11 +27,11 @@ body {
 .board-card {
   height: 120px;
   width: auto;
-  transition-duration: 0.2s;
 }
 
-.board-card:hover {
+.holdings-container:hover {
   cursor: pointer;
+  transition-duration: 0.2s;
 }
 
 .player-title {
@@ -45,6 +45,10 @@ body {
   color: lime;
   font-family: Impact;
   margin-bottom: 1px;
+}
+
+.position-stack-edit:hover {
+  cursor: pointer;
 }
 
 .board-title {
@@ -88,11 +92,6 @@ body {
   color: blue;
 }
 
-.position-stack-edit:hover {
-  cursor: pointer;
-  color: blue;
-}
-
 .position-stack-edit {
   color: #001f3f;
   border-radius: 50%;
@@ -110,7 +109,7 @@ body {
 }
 
 @media only screen and (min-width: 1024px) {
-  .board-card:hover {
+  .holdings-container:hover {
     transform: scale(1.2)
   }
 }

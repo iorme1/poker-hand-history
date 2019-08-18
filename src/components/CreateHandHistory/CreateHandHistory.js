@@ -75,7 +75,7 @@ class CreateHandHistory extends Component {
           </div>
           <div className="col-3 text-center">
             <h4 className="player-title">
-              Villains <span className="villain-count">{villains}</span>
+              Villains
             </h4>
             {villainPlaceholders.map((vil, i) => {
               return (

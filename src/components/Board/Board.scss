@@ -1,0 +1,10 @@
+.board-container:hover {
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+@media only screen and (min-width: 1024px) {
+  .board-container:hover {
+    transform: scale(1.1);
+  }
+}

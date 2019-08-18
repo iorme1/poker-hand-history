@@ -1,17 +1,36 @@
-import React  from 'react';
+import React, { Component } from 'react';
 import './ModalCardImage.scss';
 import PropTypes from 'prop-types';
 
-const ModalCardImage = (props) => {
-  return (
-      <img
-        className="my-modal-card"
-        data-test="modal-card-image"
-        src={`../img/${props.src}`}
-        onClick={props.setCard}
-        alt="card-img"
-      />
-  );
+class ModalCardImage extends Component {
+  state = {
+    selected: false
+  }
+
+  toggleSelect() {
+    if (this.state.selected) {
+      this.setState({ selected: !this.state.selected });
+      this.props.removeCard()
+    } else {
+      this.setState({ selected: !this.state.selected });
+      this.props.setCard()
+    }
+  }
+
+  render() {
+    let cardState = this.state.selected ? "highlight" : "default";
+
+    return (
+      <div className={cardState} onClick={this.toggleSelect.bind(this)}>
+        <img
+          className="my-modal-card"
+          data-test="modal-card-image"
+          src={`../img/${this.props.src}`}
+          alt="card-img"
+        />
+      </div>
+    );
+  }
 }
 
 ModalCardImage.propTypes = {

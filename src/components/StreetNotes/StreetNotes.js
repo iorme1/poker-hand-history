@@ -180,7 +180,7 @@ class StreetNotes extends Component {
               <p className="notes-label">
                 {"Preflop "}
                 <span className="pot-size">
-                  (${small_blind + big_blind + straddle})
+                  (Pot Size: ${small_blind + big_blind + straddle})
                 </span>
               </p>
               <p
@@ -196,7 +196,7 @@ class StreetNotes extends Component {
               <p className="notes-label">
                 {"Flop "}
                 <span className="pot-size">
-                  (${flop_pot_size})
+                  (Pot Size: ${flop_pot_size})
                 </span>
               </p>
               <p
@@ -212,7 +212,7 @@ class StreetNotes extends Component {
               <p className="notes-label">
                 {"Turn "}
                 <span className="pot-size">
-                  (${turn_pot_size})
+                  (Pot Size: ${turn_pot_size})
                 </span>
               </p>
               <p
@@ -228,7 +228,7 @@ class StreetNotes extends Component {
               <p className="notes-label">
                 {"River "}
                 <span className="pot-size">
-                  (${river_pot_size})
+                  (Pot Size: ${river_pot_size})
                 </span>
               </p>
               <p
