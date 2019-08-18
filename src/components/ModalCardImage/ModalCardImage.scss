@@ -14,13 +14,13 @@
 
 .highlight {
   display: inline-block;
-  border: 3px solid lime;
-  /*transform: scale(1.1);*/
+  box-shadow: 0.5px 0.5px 1px 2px #FFDC00;
+  transform: scale(1.1);
 }
 
 
 @media only screen and (min-width: 1024px) {
   .my-modal-card:hover {
-    transform: scale(1.2)
+    transform: scale(1.1)
   }
 }

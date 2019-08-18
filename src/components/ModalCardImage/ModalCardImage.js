@@ -18,17 +18,20 @@ class ModalCardImage extends Component {
   }
 
   render() {
-    let cardState = this.state.selected ? "highlight" : "default";
+    let { selected } = this.state;
+    let cardState = selected ? "highlight" : "default";
 
     return (
-      <div className={cardState} onClick={this.toggleSelect.bind(this)}>
-        <img
-          className="my-modal-card"
-          data-test="modal-card-image"
-          src={`../img/${this.props.src}`}
-          alt="card-img"
-        />
-      </div>
+        <div
+          className={cardState}
+          onClick={this.toggleSelect.bind(this)}>
+          <img
+            className="my-modal-card"
+            data-test="modal-card-image"
+            src={`../img/${this.props.src}`}
+            alt="card-img"
+          />
+        </div>
     );
   }
 }
