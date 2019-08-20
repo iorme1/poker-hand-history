@@ -50,10 +50,13 @@ class CommentNotes extends Component {
           </Modal>
           <div className="row mt-2">
             <div className="col-12 text-center">
-              <p
-                className="edit-link"
-                onClick={this.toggleNotesModal.bind(this)}>Edit Notes
-              </p>
+              <button
+                className="btn btn-outline-warning"
+                onClick={this.toggleNotesModal.bind(this)}
+                data-test="open-toggle-notes-modal"
+              >
+                Edit Notes
+              </button>
             </div>
           </div>
           <div className="row">

@@ -6,7 +6,7 @@ import './Notes.scss';
 
 class Notes extends Component {
   state = {
-    show_street_notes: false,
+    show_street_notes: true,
     show_comment_notes: false
   }
 
@@ -42,7 +42,6 @@ class Notes extends Component {
               type="select"
               onChange={this.filterNotes.bind(this)}
             >
-              <option value="none">hide notes</option>
               <option value="street">street notes</option>
               <option value="comment">comment notes</option>
             </Input>

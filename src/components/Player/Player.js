@@ -159,12 +159,12 @@ class Player extends Component {
             alt="holding2"
           />
         </div>
-        <p
-          className="position-stack-edit mb-2"
+        <button
+          className="mb-2 btn btn-outline-warning"
           onClick={this.togglePlayerDetails.bind(this)}
         >
           pos/$ &#x270E;
-        </p>
+        </button>
       </div>
     );
   }
