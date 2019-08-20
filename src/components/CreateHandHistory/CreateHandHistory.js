@@ -13,6 +13,7 @@ class CreateHandHistory extends Component {
   state = {
     villains: 1,
     positions: [],
+    screen_shot_view: false
   }
 
   incrementVillains() {
@@ -34,23 +35,35 @@ class CreateHandHistory extends Component {
     this.setState({ positions: nextPositions });
   }
 
+  screenShotView() {
+    this.setState({ screen_shot_view: !this.state.screen_shot_view })
+  }
+
   render() {
     let { villains } = this.state;
     let villainPlaceholders = Array(villains).fill("active");
+    let display = this.state.screen_shot_view ? "hide" : "col-6 text-right";
 
     return (
       <div className="container-fluid">
-        <div className="row mt-2">
-          <div className="col-12 text-center">
+        <div className="row mt-2 mb-2">
+          <div className="col-6 text-left">
+            <i
+              className="fa fa-camera icon"
+              onClick={this.screenShotView.bind(this)}
+            >
+            </i>
+          </div>
+          <div className={display}>
+            <span className="villain-adjust-label mr-2">Villains</span>
             <Button
               onClick={this.incrementVillains.bind(this)}
               className="btn btn-success mr-2 top-edit-btn"
             >
               +
             </Button>
-            <span className="villain-adjust-label">Villains</span>
             <Button
-              className="btn btn-danger ml-2 top-edit-btn"
+              className="btn btn-danger top-edit-btn"
               onClick={this.decrementVillains.bind(this)}
             >
               -
@@ -67,11 +80,14 @@ class CreateHandHistory extends Component {
               player_type="Hero"
               addPosition={this.addPosition.bind(this)}
               positionsTaken={new Set([...this.state.positions])}
+              hideEditing={this.state.screen_shot_view}
             />
           </div>
           <div className="col-6">
             <Board/>
-            <Notes/>
+            <Notes
+              hideEditing={this.state.screen_shot_view}
+            />
           </div>
           <div className="col-3 text-center">
             <h4 className="player-title">
@@ -84,6 +100,7 @@ class CreateHandHistory extends Component {
                   addPosition={this.addPosition.bind(this)}
                   key={`villain${i}`}
                   positionsTaken={new Set([...this.state.positions])}
+                  hideEditing={this.state.screen_shot_view}
                 />
               );
             })}

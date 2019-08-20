@@ -54,6 +54,8 @@ class StreetNotes extends Component {
         flop_pot_size, turn_pot_size, river_pot_size
       } = this.state;
 
+      let display = this.props.hideEditing ? "hide" : "row mt-1";
+
       return (
         <div data-test="street-notes-container">
           <Modal
@@ -164,7 +166,7 @@ class StreetNotes extends Component {
               <Button color="secondary" onClick={this.toggleNotesModal.bind(this)}>Save</Button>
             </ModalFooter>
           </Modal>
-          <div className="row mt-2">
+          <div className={display}>
             <div className="col-12 text-center">
               <button
                 className="btn btn-outline-warning"
@@ -175,7 +177,7 @@ class StreetNotes extends Component {
               </button>
             </div>
           </div>
-          <div className="row no-gutters">
+          <div className="row no-gutters mt-3">
             <div className="col-12">
               <p className="notes-label">
                 {"Preflop "}

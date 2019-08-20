@@ -27,6 +27,9 @@ class CommentNotes extends Component {
 
   render() {
     if (this.props.active) {
+
+      let display = this.props.hideEditing ? "hide" : "row mt-1"
+
       return (
         <div data-test="comment-notes-container">
           <Modal
@@ -48,7 +51,7 @@ class CommentNotes extends Component {
               <Button color="secondary" onClick={this.toggleNotesModal.bind(this)}>Save</Button>
             </ModalFooter>
           </Modal>
-          <div className="row mt-2">
+          <div className={display}>
             <div className="col-12 text-center">
               <button
                 className="btn btn-outline-warning"

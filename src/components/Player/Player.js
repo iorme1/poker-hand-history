@@ -78,6 +78,7 @@ class Player extends Component {
   render() {
     let { positionsTaken } = this.props;
     let remainingPositions = Positions.filter(pos => !positionsTaken.has(pos));
+    let display = this.props.hideEditing ? "hide" : "mb-2 btn btn-outline-warning";
 
     return (
       <div>
@@ -160,7 +161,7 @@ class Player extends Component {
           />
         </div>
         <button
-          className="mb-2 btn btn-outline-warning"
+          className={display}
           onClick={this.togglePlayerDetails.bind(this)}
         >
           pos/$ &#x270E;

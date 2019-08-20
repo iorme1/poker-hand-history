@@ -33,9 +33,11 @@ class Notes extends Component {
   }
 
   render() {
+    let display = this.props.hideEditing ? "hide" : "row text-center mt-3";
+
     return (
       <div>
-        <div className="row text-center mt-3">
+        <div className={display}>
           <div className="col-12">
             <Input
               className="select-notes-input"
@@ -49,9 +51,11 @@ class Notes extends Component {
         </div>
         <StreetNotes
           active={this.state.show_street_notes}
+          hideEditing={this.props.hideEditing}
         />
         <CommentNotes
           active={this.state.show_comment_notes}
+          hideEditing={this.props.hideEditing}
         />
       </div>
     );
