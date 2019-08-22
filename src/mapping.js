@@ -38,3 +38,22 @@ export const Positions = [
   "utg","utg1", "utg2", "lojack", "hijack",
   "cutoff", "button", "sb", "bb"
 ];
+
+export const PreflopQuickText = [
+  "hero", "villain", "straddler", "isolates", "opens", "raises", "3bets", "4bets",
+  "limps", "overlimps", "folds", "re-raises", "calls", "everyone calls", "jams",
+  "tank", "limp", "limpers",  "straddle", "limps around to", "less than", "more than", "about",
+  "2x", "2.5x", "3x", "3.5x", "4x", "4.5x", "5x", "6x", "7x", "8x", "9x", "10x",
+  "1", "2", "3", "4", "5", "6", "7", "caller", "callers",
+  ".", ","
+];
+
+export const PostflopQuickText = [
+  "hero", "villain", "folds around to", "checks around to",
+  "bets", "overbets", "jams", "checks", "calls", "raises", "re-raises", "tank", "folds", "leads",
+  "everyone calls", "less than", "more than", "about",
+  "1/6 pot", "1/5 pot", "1/4 pot", "1/3 pot", "1/2 pot", "2/3 pot", "3/4 pot", "pot",
+  "2x", "2.5x", "3x", "3.5x", "4x", "4.5x", "5x", "6x", "7x", "8x", "9x", "10x",
+  "1", "2", "3", "4", "5", "6", "7", "caller", "callers",
+  ".", ","
+];

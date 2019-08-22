@@ -16,6 +16,11 @@ class CreateHandHistory extends Component {
     screen_shot_view: false
   }
 
+  refreshPage() {
+    // used in cases where iphone app icon doesn't allow browser refresh
+    window.location.reload()
+  }
+
   incrementVillains() {
     if (this.state.villains === 8) return;
     this.setState({ villains: this.state.villains + 1 })
@@ -49,8 +54,13 @@ class CreateHandHistory extends Component {
         <div className="row mt-2 mb-2">
           <div className="col-6 text-left">
             <i
-              className="fa fa-camera icon"
+              className="fa fa-camera mr-4 cam-icon"
               onClick={this.screenShotView.bind(this)}
+            >
+            </i>
+            <i
+              className="fa fa-refresh refresh-icon"
+              onClick={this.refreshPage.bind(this)}
             >
             </i>
           </div>
